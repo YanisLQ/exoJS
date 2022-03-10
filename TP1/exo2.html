@@ -1,0 +1,25 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="textStyles">
+        <p>Gras</p>
+        <p>Italique</p>
+        <p>Uppercase</p>
+    </div>
+    <script>
+      //Exo 2 
+        var DivForStyle = document.getElementById('textStyles');
+        DivForStyle.getElementsByTagName("p")[0].style.fontWeight = 'bold';
+        DivForStyle.getElementsByTagName("p")[1].style.fontStyle = 'italic';
+        DivForStyle.getElementsByTagName("p")[2].style.textTransform = 'uppercase';
+    </script>
+</body>
+</html>

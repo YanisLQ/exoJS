@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exo 4 </title>
+</head>
+<body>
+   <div id="myId" style="width: 50px; height:50px; background-color: #74992e">   </div>
+</body>
+<script>
+    document.onkeydown = detectKey;
+
+    function detectKey(e) {
+        var posLeft = document.getElementById('myId').offsetLeft;
+        var posTop = document.getElementById('myId').offsetTop;
+        e = e || window.event;
+        if (e.keyCode == '38') {
+            // up arrow
+            document.getElementById('myId').style.marginTop  = (posTop-50)+"px";
+            if( document.getElementById('myId').style.marginTop < 0) {
+                document.getElementById('myId').style.marginTop = 0
+            }
+        }
+        else if (e.keyCode == '40') {
+            // down arrow
+            document.getElementById('myId').style.marginTop  = (posTop+50)+"px";
+        }
+        else if (e.keyCode == '37') {
+           // left arrow
+            document.getElementById('myId').style.marginLeft  = (posLeft-50)+"px";
+        }
+        else if (e.keyCode == '39') {
+           // right arrow
+            document.getElementById('myId').style.marginLeft  = (posLeft+50)+"px";
+        }
+    }
+</script>
+</html>

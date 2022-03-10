@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <img src="https://static.wikia.nocookie.net/lemondededisney/images/5/59/Olaf.jpg/revision/latest?cb=20160326130242&path-prefix=fr" alt="Olaf" onclick="turnImage()">
+</body>
+<script>
+    let rotation = 0;
+    function turnImage() {
+        rotation += 90;
+        if (rotation === 360) { 
+            rotation = 0;
+        }
+    document.querySelector("img").style.transform = `rotate(${rotation}deg)`;
+}
+</script>
+</html>
