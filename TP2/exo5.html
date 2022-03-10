@@ -8,29 +8,31 @@
 </head>
 <body>
     <img id="image1" alt="Qries" src="https://www.sortiraparis.com/images/80/77153/488158-un-showcase-de-peppa-pig-a-la-grande-recre-beaugrenelle.jpg" onmouseover="growImg(this)" onmouseleave="normalImg(this)">
-    <img alt="Qries" src="https://static.actu.fr/uploads/2022/02/illustration-chicha-1-960x640-960x640.jpeg" onmouseover="growImg(this)" onmouseleave="normalImg(this)">
-    <img alt="Qries" src="https://static.wikia.nocookie.net/lemondededisney/images/5/59/Olaf.jpg/revision/latest?cb=20160326130242&path-prefix=fr" onmouseover="growImg(this)" onmouseleave="normalImg(this)"> 
+    <img id="image2" alt="Qries" src="https://static.actu.fr/uploads/2022/02/illustration-chicha-1-960x640-960x640.jpeg" onmouseover="growImg(this)" onmouseleave="normalImg(this)">
+    <img id="image3" alt="Qries" src="https://static.wikia.nocookie.net/lemondededisney/images/5/59/Olaf.jpg/revision/latest?cb=20160326130242&path-prefix=fr" onmouseover="growImg(this)" onmouseleave="normalImg(this)"> 
 </body>
 <script>
     let image1 = document.getElementById("image1");
+    let widthNatural1, widthNatural2, widthNatural3
+
     image1.onload=function(){
-        widthNatural = image1.naturalWidth;
+        widthNatural1 = image1.naturalWidth;
     }
     let image2 = document.getElementById("image2");
     image2.onload=function(){
-        widthNatural = image2.naturalWidth;
+        widthNatural2 = image2.naturalWidth;
     }
     let image3 = document.getElementById("image3");
     image3.onload=function(){
-        widthNatural = image3.naturalWidth;
+        widthNatural3 = image3.naturalWidth;
     }
     function growImg(image){
         image.width = parseFloat(image.width) * 3
     }
     function normalImg(image) {
-        image.width = image1.naturalWidth;
-        image.width = image2.naturalWidth;
-        image.width = image3.naturalWidth;
+        image.width = widthNatural1;
+        image.width = widthNatural2;
+        image.width = widthNatural3;
     }
 </script>
 </html>
