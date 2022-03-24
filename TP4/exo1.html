@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo 1</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function revert(str) {
+        return str.split("").reverse().join("");
+    }
+   // console.log(revert("Hello I'm Robert !"))
+    function ucFirst(word) {
+        let sentenceSplit = word.split("")
+        let letterMaj =  word.split("")[0].toUpperCase()
+        sentenceSplit[0] = letterMaj;
+        return sentenceSplit.join("");
+    }
+    //console.log(ucFirst("hello"));
+    function capitalize(str) {
+        let newTab = [];
+        let splitStr = str.split(" ");
+        splitStr.forEach(element => 
+            newTab.push(ucFirst(element)) 
+        )
+        
+        return newTab.join(" ");
+    }
+    //console.log(capitalize("hello i'm robert !"))
+    function pascalCase(str) {
+        let newTab = [];
+        let splitStr = str.split(" ");
+        splitStr.forEach(element => 
+            newTab.push(ucFirst(element)) 
+        )
+        
+        return newTab.join("");
+    }
+    //console.log(pascalCase("sentence in pascalCase"))
+    function palindrome(str) {
+        wordRevert = revert(str);
+        if(wordRevert == str){
+            return true
+        } else {
+            return false
+        }
+    }
+    //console.log(palindrome("kayak"))
+    function findLongestWord(str){
+        let motLeplusLong = 0;
+        let index = 0;
+        let splitStr = str.split(" ")
+        splitStr.forEach((element,indexes) => {
+            if(element.length > motLeplusLong){
+                motLeplusLong = element.length
+               index = indexes;
+            }
+        }
+        )
+        return splitStr[index]
+    }
+    console.log(findLongestWord("Le chemin le plus cours n'est pas toujours le meilleur"))
+</script>
+</html>
