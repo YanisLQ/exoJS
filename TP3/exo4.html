@@ -12,12 +12,20 @@
     </ul>
 </body>
 <script>
+    let list = document.querySelector('ul')
     let arrayPressed = [];
     document.addEventListener('keydown', function(event) {
-        arrayPressed.push(event.key);
+        let li = document.createElement("li");
+        if (arrayPressed.length < 20) {
+            arrayPressed.push(event.key);
+            li.innerHTML = event.key
+            document.getElementsByTagName("ul")[0].appendChild(li);
+        } else {
+            console.log('atteint les 20')
+        }
+        
+    })
 
-        console.log(arrayPressed)
-        })
 
 
 </script>
