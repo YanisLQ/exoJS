@@ -21,7 +21,9 @@
             li.innerHTML = event.key
             document.getElementsByTagName("ul")[0].appendChild(li);
         } else {
-            console.log('atteint les 20')
+            let mylist = document.querySelectorAll("li");
+            arrayPressed.shift()
+            list.removeChild(mylist[0])
         }
         
     })
