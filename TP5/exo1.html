@@ -10,22 +10,10 @@
     
 </body>
 <script>
-    function getHashTags(str){
+    const getHashTags = (str) => {
+        return str.split(" ").sort((a,b) => b.length - a.length).splice(0,3).map((word) => ` #${word} `)
     }
-    //console.log(getHashTags("hey parents, surprise, fruit juice is not fruit"))
+    console.log(getHashTags("hey parents, surprise, fruit juice is not fruit"))
 
-    const tab = [0, 2, 4 ,4, 6, 4, 8, 8];
-    function removeDuplicate(tab) {
-       let result = []
-       let doublon = []
-        for(let i = 0; i < tab.length; i++){
-            result = tab.filter(word => word == tab[i])
-            if(result.length > 1) {
-                result.splice(i);
-            }
-        }
-        console.log(result)
-    }
-    console.log(removeDuplicate(tab))
 </script>
 </html>

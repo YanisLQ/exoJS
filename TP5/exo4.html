@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo 4</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const arrayDiff = (first, second) => {
+        const FirstTab = first.filter(numberOne => numberOne !== second.find(numberTwo => numberTwo === numberOne))
+        const SecondTab = second.filter(numberTwo => numberTwo !== first.find(numberOne => numberOne === numberTwo))
+        return [...new Set(FirstTab.concat(SecondTab).sort())]
+      }
+
+      const first = [0,2,4,6,8,8]
+      const second = [1,2,3,4,5,6]
+
+      console.log(arrayDiff(first,second))
+</script>
+</html>
