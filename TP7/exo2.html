@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo 1</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function VerifChaine(nb1, nb2){
+        return new Promise((successCallback, faillureCallback) => {
+            if(nb1 > nb2) {
+                successCallback(nb1 - nb2)
+            } else {
+                faillureCallback(`false: ${nb2 - nb1}`)
+            }
+        })
+    }
+   const promise = VerifChaine(9, 4);
+   promise.then(res=> console.log(res)).catch(
+       err => console.log(err)
+   );
+</script>
+</html>
