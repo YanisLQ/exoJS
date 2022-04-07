@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo 1</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const fiscalcode = ({
+        name: "Matt",
+        surname: "Edabit",
+        gender: "M",
+        dob: "1/1/1900"
+    })
+    const fiscalcode1 = ({
+        name: "Helen",
+        surname: "Yu",
+        gender: "F",
+        dob: "1/12/1950"
+    })
+    const fiscalcode2 = ({
+        name: "Mickey",
+        surname: "Mouse",
+        gender: "M",
+        dob: "16/1/1928"
+    })
+
+    function generateSurname(str){
+        tabCut = str.split("")
+        let tabConsonne = []
+        let tabVoyelle = []
+        let cptrConsomme = 0;
+        let cptrVoyelle = 0;
+        tabCut.forEach(element => {
+            if( element == 'a' || element == 'A' 
+                || element == 'E' || element == 'e' 
+                || element == 'i' || element == 'I' 
+                || element == 'o' || element == 'O' 
+                || element == 'u' || element == 'U'
+                ) {
+                tabVoyelle.push(element)
+                cptrVoyelle += 1;
+            } else {
+                if(cptrConsomme <= 3){
+                    tabConsonne.push(element)
+                    cptrConsomme += 1;
+                }
+            }
+        })
+        let cptrLetter = cptrConsomme + cptrVoyelle;
+        let finalTab = letterInferiorThree(tabVoyelle, tabConsonne, cptrLetter)
+        return finalTab
+    }
+    function generateName(str){
+        tabCut = str.split("")
+        let tabConsonne = []
+        let tabVoyelle = []
+        let cptrConsomme = 0;
+        let cptrVoyelle = 0;
+        tabCut.forEach((element,index) => {
+            if(element == 'a' || element == 'e' || element == 'i' || element == 'o' || element == 'u') {
+                tabVoyelle.push(element)
+                cptrVoyelle += 1;
+            } else {
+                if(cptrConsomme < 3){
+                    tabConsonne.push(element)
+                    cptrConsomme += 1;
+                } else if (cptrConsomme >= 3){
+                    tabConsonne.push(element)
+                }
+            }
+        })
+        if(tabConsonne.length > 3 ){
+            tabConsonne.splice(1,1)
+        }
+        let cptrLetter = cptrConsomme + cptrVoyelle;
+        let finalTab = letterInferiorThree(tabVoyelle, tabConsonne, cptrLetter)
+        return finalTab
+    }
+    function letterInferiorThree(tabVoyelle, tabConsonne, cptrLetter){
+        let tableauCommun = []
+        for(let i = 0; i < 3; i++){
+            if(tabConsonne[i]){
+                tableauCommun.push(tabConsonne[i])
+            }
+            else {
+                if (tableauCommun.length == 2){
+                    tableauCommun.push(tabVoyelle[0])
+                } else if (tableauCommun.length == 1 ) {
+                    if(cptrLetter == 2){
+                        tableauCommun.push(tabVoyelle[0])
+                        tableauCommun.push('x')
+                    } else {
+                        tableauCommun.push(tabVoyelle[0])
+                        tableauCommun.push(tabVoyelle[1])
+                    }
+                }
+            }
+        }
+        
+        return tableauCommun.join("").toUpperCase();
+    }
+
+    for (const key in fiscalcode) {
+        //console.log(`${key}: ${fiscalcode[key]}`)
+        let initialSurname = generateSurname(fiscalcode.surname)
+        let initialName = generateName(fiscalcode.name)
+        console.log(initialSurname); console.log(initialName);
+
+    }
+</script>
+</html>

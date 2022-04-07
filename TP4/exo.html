@@ -10,10 +10,12 @@
     
 </body>
 <script>
+    //exo 1 : Créer une fonction revert(str) qui inverse une chaîne de caractère et la retourne
     function revert(str) {
         return str.split("").reverse().join("");
     }
    // console.log(revert("Hello I'm Robert !"))
+   //exo 2 : Ecrire une fonction ucFirst(word) qui transforme la première lettre d’une chaine de caractère en majuscule
     function ucFirst(word) {
         let sentenceSplit = word.split("")
         let letterMaj =  word.split("")[0].toUpperCase()
@@ -21,6 +23,7 @@
         return sentenceSplit.join("");
     }
     //console.log(ucFirst("hello"));
+   //exo 3 : Ecrire une fonction capitalize(str) qui transforme chaque première lettre de chaque mot en majuscule
     function capitalize(str) {
         let newTab = [];
         let splitStr = str.split(" ");
@@ -29,7 +32,8 @@
         )
         
         return newTab.join(" ");
-    }
+    }4
+    //exo 4 : Ecrire une fonction pascalCase(str) qui transforme chaque première lettre de chaque mot en majuscule et supprime les espaces
     //console.log(capitalize("hello i'm robert !"))
     function pascalCase(str) {
         let newTab = [];
@@ -40,6 +44,7 @@
         
         return newTab.join("");
     }
+    //exo 5: Ecrire une fonction pascalCase(str) qui transforme chaque première lettre de chaque mot en majuscule et supprime les espaces
     //console.log(pascalCase("sentence in pascalCase"))
     function palindrome(str) {
         wordRevert = revert(str);
@@ -49,7 +54,17 @@
             return false
         }
     }
+    function palindrome(str) {
+        str = str
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/\s+/g, "");
+  
+        return str == revert(str);
+      }
     //console.log(palindrome("kayak"))
+    //exo 6: Écrire une fonction findLongestWord(str) qui permet de trouver le mot le long plus d’une chaîne de caractère++
     function findLongestWord(str){
         let motLeplusLong = 0;
         let index = 0;
