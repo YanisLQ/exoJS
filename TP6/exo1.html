@@ -118,6 +118,18 @@
         }
     }
 
+    function DayEncrypted(date, gender){
+        let dateSplit = date.split("/");
+        if(gender == 'M') {
+            if(dateSplit[0] < 10){
+                return 0 + dateSplit[0]
+            }
+        } else if (gender == 'F') {
+            return (parseInt(40) + parseInt(dateSplit[0]))
+        }
+        return dateSplit[0]
+    }
+
     const MonthEncoded = ({
         1: 'A',
         2: 'B',
@@ -132,13 +144,14 @@
         11: 'S',
         12: 'T',
     })
-    for (const key in fiscalcode) {
+    for (const key in fiscalcode1) {
         //console.log(`${key}: ${fiscalcode[key]}`)
         let initialSurname = generateSurname(fiscalcode.surname)
         let initialName = generateName(fiscalcode.name)
         let yearsDecrypte = decryptedDate(fiscalcode.dob)
         let monthEncrypred = MonthEncrypted(fiscalcode.dob)
-        console.log(monthEncrypred)
+        let dayEncrypted = DayEncrypted(fiscalcode2.dob, fiscalcode2.gender)
+        console.log(initialSurname + initialName + yearsDecrypte + monthEncrypred + dayEncrypted)
     }
 </script>
 </html>
