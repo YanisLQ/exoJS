@@ -104,13 +104,41 @@
         
         return tableauCommun.join("").toUpperCase();
     }
+    function decryptedDate(date){
+        let dateSplit = date.split("/");
+        let getLastNumber = dateSplit[2].split("")
+        return getLastNumber[2] + getLastNumber[3]
+    }
+    function MonthEncrypted(date){
+        let dateSplit = date.split("/");
+        for (const key in MonthEncoded){
+            if(key == dateSplit[1]){
+                return MonthEncoded[dateSplit[1]]
+            }
+        }
+    }
 
+    const MonthEncoded = ({
+        1: 'A',
+        2: 'B',
+        3: 'C',
+        4: 'D',
+        5: 'E',
+        6: 'H',
+        7: 'L',
+        8: 'M',
+        9: 'P',
+        10: 'R',
+        11: 'S',
+        12: 'T',
+    })
     for (const key in fiscalcode) {
         //console.log(`${key}: ${fiscalcode[key]}`)
         let initialSurname = generateSurname(fiscalcode.surname)
         let initialName = generateName(fiscalcode.name)
-        console.log(initialSurname); console.log(initialName);
-
+        let yearsDecrypte = decryptedDate(fiscalcode.dob)
+        let monthEncrypred = MonthEncrypted(fiscalcode.dob)
+        console.log(monthEncrypred)
     }
 </script>
 </html>
