@@ -11,17 +11,15 @@
 </body>
 <script>
     function VerifChaine(str){
-        return new Promise((successCallback, faillureCallback) => {
+        return new Promise((resolve, reject) => {
             if(str.length > 20) {
-                faillureCallback("Supérieur a 20 : erreur")
+                reject("Supérieur a 20 : erreur")
             } else {
-                successCallback(true)
+                console.log("Bien égale à true")
+                resolve(true)
             }
         })
     }
    const promise = VerifChaine("voici ma chcaraere");
-   promise.then(res=> console.log(res)).catch(
-       err => console.log(err)
-   );
 </script>
 </html>
