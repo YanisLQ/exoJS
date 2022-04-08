@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo 5</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function VerifChaine(str){
+        return new Promise((successCallback, faillureCallback) => {
+            if(str.length > 20) {
+                faillureCallback("Supérieur a 20 : erreur")
+            } else {
+                successCallback(true)
+            }
+        })
+    }
+    function VerificationChaine(nb1, nb2){
+        return new Promise((successCallback, faillureCallback) => {
+            if(nb1 > nb2) {
+                successCallback(nb1 - nb2)
+            } else {
+                faillureCallback(`false: ${nb2 - nb1}`)
+            }
+        })
+    }
+    function changeOrderDate(date) {
+        let datesplit = date.split("/")        
+        let temp = datesplit[1]
+        datesplit[1] = datesplit[0]
+        datesplit[0] = temp
+        return datesplit.join("/")
+    }  
+    function isMinor(datePerson){
+        let date = new Date(changeOrderDate(datePerson));
+        let diff = Date.now() - date.getTime();
+        let age = new Date(diff)
+        return new Promise((successCallback, faillureCallback) => {
+            if(Math.abs(age.getUTCFullYear() - 1970) >= 18) {
+                successCallback(true)
+            } else {
+                faillureCallback("La personne est mineur")
+            }
+        })
+    }
+ //exo1 
+ async function exo1() {
+     try {
+        console.log(await VerifChaine("voici ma dsdsd"));
+     } catch (e) {
+         console.log(e)
+     }
+ }
+ exo1()
+//exo2
+async function exo2(){
+    try {
+        console.log(await VerificationChaine(9, 4))
+    } catch (e) {
+        console.log(e)
+    }
+}
+exo2()
+
+//exo 3
+async function exo3() {
+    try {
+        console.log(await isMinor('21/04/2008'))
+    } catch (e){
+        console.log(e)
+    }
+}
+exo3()
+
+</script>
+</html>
