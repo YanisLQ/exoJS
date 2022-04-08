@@ -10,7 +10,7 @@
     
 </body>
 <script>
-    function VerifChaine(str){
+    function isMoreThanTwenty(str){
         return new Promise((successCallback, faillureCallback) => {
             if(str.length > 20) {
                 faillureCallback("Supérieur a 20 : erreur")
@@ -19,7 +19,7 @@
             }
         })
     }
-    function VerificationChaine(nb1, nb2){
+    function isBigger(nb1, nb2){
         return new Promise((successCallback, faillureCallback) => {
             if(nb1 > nb2) {
                 successCallback(nb1 - nb2)
@@ -50,7 +50,7 @@
  //exo1 
  async function exo1() {
      try {
-        console.log(await VerifChaine("voici ma dsdsd"));
+        console.log(await isMoreThanTwenty("voici ma dsdsd"));
      } catch (e) {
          console.log(e)
      }
@@ -59,7 +59,7 @@
 //exo2
 async function exo2(){
     try {
-        console.log(await VerificationChaine(9, 4))
+        console.log(await isBigger(9, 4))
     } catch (e) {
         console.log(e)
     }

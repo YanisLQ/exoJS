@@ -10,7 +10,7 @@
     
 </body>
 <script>
-    function VerifChaine(nb1, nb2){
+    function isBigger(nb1, nb2){
         return new Promise((successCallback, faillureCallback) => {
             if(nb1 > nb2) {
                 successCallback(nb1 - nb2)
@@ -19,6 +19,6 @@
             }
         })
     }
-   const promise = VerifChaine(4, 9);
+   const promise = isBigger(4, 9);
 </script>
 </html>

@@ -10,7 +10,7 @@
     
 </body>
 <script>
-    function VerifChaine(str){
+    function isMoreThanTwenty(str){
         return new Promise((resolve, reject) => {
             if(str.length > 20) {
                 reject("Supérieur a 20 : erreur")
@@ -20,6 +20,6 @@
             }
         })
     }
-   const promise = VerifChaine("voici ma chcaraere");
+   const promise = isMoreThanTwenty("voici ma chcaraere");
 </script>
 </html>
